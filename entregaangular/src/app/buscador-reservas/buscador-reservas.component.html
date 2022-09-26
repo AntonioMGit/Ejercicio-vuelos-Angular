@@ -1,0 +1,19 @@
+<div class="container">
+    Origen:
+    <select [(ngModel)]="origen" name="origen" id="origen">
+        <option value="{{aer.codigoIata}}" *ngFor="let aer of aeropuertos">{{aer.nombre}} - {{aer.codigoIata}}</option>
+    </select>
+    Destino:
+    <select [(ngModel)]="destino" name="destino" id="destino">
+        <option value="{{aer.codigoIata}}" *ngFor="let aer of aeropuertos">{{aer.nombre}} - {{aer.codigoIata}}</option>
+    </select>
+    <button class="btn btn-primary" (click)="filtrarReservas()">Buscar reservas</button>
+
+    <div *ngFor="let re of reservasFiltradas">
+        <p>Reserva: {{re.id}} ; Fecha {{re.id}}</p>
+        <p>{{generarOrigenDestino(re.vuelo)}}</p>
+        <p>Pasajero: {{re.pasajero.nombre}}; {{re.pasajero.apellidos}}; {{re.pasajero.correo}}; {{re.pasajero.telefono}}</p>
+        <hr>
+    </div>
+
+</div>

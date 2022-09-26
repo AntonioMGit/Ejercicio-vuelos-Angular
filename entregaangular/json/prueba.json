@@ -1,0 +1,106 @@
+{
+  "airports": [
+    {
+      "id": 1,
+      "nombre": "Berlín Brandeburgo Airport",
+      "codigoIata": "BER"
+    },
+    {
+      "id": 2,
+      "nombre": "Bruselas Airport",
+      "codigoIata": "BRU"
+    },
+    {
+      "id": 3,
+      "nombre": "Madrid Barajas Airport",
+      "codigoIata": "MAD"
+    },
+    {
+      "id": 4,
+      "nombre": "París Orly Airport",
+      "codigoIata": "ORY"
+    },
+    {
+      "id": 5,
+      "nombre": "Roma Fiumicino Airport",
+      "codigoIata": "FCO"
+    }
+  ],
+  "companies": [
+    {
+      "id": 1,
+      "nombre": "Air Berlin",
+      "codigoIata": "AB"
+    },
+    {
+      "id": 2,
+      "nombre": "Iberia Airlines",
+      "codigoIata": "IB"
+    },
+    {
+      "id": 3,
+      "nombre": "Lufthansa",
+      "codigoIata": "LH"
+    }
+  ],
+  "flights": [
+    {
+      "id": 1,
+      "origen": "MAD",
+      "destino": "FCO",
+      "companies": [
+        "IB"
+      ],
+      "fechaDesde": "2022-01-01",
+      "fechaHasta": "2022-12-31",
+      "duracion": 2.5
+    },
+    {
+      "origen": "BER",
+      "destino": "BRU",
+      "companies": [
+        "IB",
+        "LH"
+      ],
+      "fechaDesde": "asdas",
+      "fechaHasta": "asd",
+      "duracion": 3,
+      "id": 2
+    },
+    {
+      "origen": "BRU",
+      "destino": "BER",
+      "companies": [
+        "IB"
+      ],
+      "fechaDesde": "asda",
+      "fechaHasta": "asda",
+      "duracion": 22,
+      "id": 5
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "vuelo": 1,
+      "fecha": "2022-04-10",
+      "pasajero": {
+        "nombre": "Luis",
+        "apellidos": "García",
+        "correo": "l.g@acme.com",
+        "telefono": "+34600700800"
+      }
+    },
+    {
+      "vuelo": 3,
+      "fecha": "asd",
+      "pasajero": {
+        "nombre": "asd",
+        "apellidos": "asd",
+        "correo": "sa",
+        "telefono": "sad"
+      },
+      "id": 2
+    }
+  ]
+}

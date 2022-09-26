@@ -1,0 +1,25 @@
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Origen</th>
+            <th scope="col">Destino</th>
+            <th scope="col">Compañias</th>
+            <th scope="col">Fecha desde</th>
+            <th scope="col">Fecha hasta</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vuelo of vuelos">
+            <td>{{vuelo.origen}}</td>
+            <td>{{vuelo.destino}}</td>
+            <td>{{vuelo.companies}}</td>
+            <td>{{vuelo.fechaDesde}}</td>
+            <td>{{vuelo.fechaHasta}}</td>
+            <!-- <button class="btn btn-primary" (click)="crearReserva()">Crear reserva</button> -->
+            <td><button class="btn btn-primary" (click)="eliminar(vuelo.id)">Eliminar</button></td>
+          </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,93 @@
+<div class="container">
+    <!-- <p>Alumno:</p>
+    <select [(ngModel)]="imputacion.empleado" name="empleados" id="empleados">
+        <option value="{{emp.id}}" *ngFor="let emp of empleados">{{emp.id}} - {{emp.nif}} - {{emp.nombre}}</option>
+    </select> -->
+    <p>Origen:</p>
+    <select #origen="ngModel" required [(ngModel)]="vuelo.origen" (change)="origenSeleccionado()" name="origen" id="origen">
+        <option value="{{aeropuerto.codigoIata}}" *ngFor="let aeropuerto of aeropuertosOrigen">{{aeropuerto.nombre}} - {{aeropuerto.codigoIata}}</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="origen.invalid && origen.touched">
+        <div *ngIf="origen.errors?.['required']">
+           El campo es obligatorio
+        </div>
+    </div>
+    <p>Destino:</p>
+    <select #destino="ngModel" required [(ngModel)]="vuelo.destino" (change)="destinoSeleccionado()" name="destino" id="destino">
+        <option value="{{aeropuerto.codigoIata}}" *ngFor="let aeropuerto of aeropuertosDestino">{{aeropuerto.nombre}} - {{aeropuerto.codigoIata}}</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="destino.invalid && destino.touched">
+        <div *ngIf="destino.errors?.['required']">
+           El campo es obligatorio
+        </div>
+    </div>
+
+    <!-- <div class="mb-3">
+        <p>Empleados:</p>
+        <select [(ngModel)]="tarea.asignaciones" name="empleados" id="empleados" multiple>
+            <option value="{{emp.id}}" *ngFor="let emp of empleados">{{emp.id}} - {{emp.nif}} - {{emp.nombre}}</option>
+        </select>
+    </div> -->
+    <div>
+        <!-- OJO CUIDAO QUE ES MULTIPLE -->
+        <p>Compañias:</p>
+        <select #compania="ngModel" required [(ngModel)]="vuelo.companies" name="companias" id="companias" multiple>
+            <option value="{{comp.codigoIata}}" *ngFor="let comp of companias">{{comp.nombre}} - {{comp.codigoIata}} - {{comp.nombre}}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="compania.invalid && compania.touched">
+            <div *ngIf="compania.errors?.['required']">
+               El campo es obligatorio
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="mb-3">
+        <label for="fInicio" class="form-label">Fecha incio</label>
+        <input [(ngModel)]="tarea.fechaInicio" type="text" class="form-control" id="fInicio" aria-describedby="fInicio">
+        <div id="fInicioHelp" class="form-text">Fecha inicio</div>
+    </div> -->
+    <div class="mb-3">
+        <label for="fDesde" class="form-label">Fecha desde:</label>
+        <input #fDesde="ngModel"
+        required
+        pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$" 
+        [(ngModel)]="vuelo.fechaDesde" type="text" class="form-control" id="fDesde">
+        <div class="alert alert-danger" *ngIf="fDesde.invalid && fDesde.touched">
+            <div *ngIf="fDesde.errors?.['pattern']">
+               Formato fecha incorrecto
+            </div>
+            <div *ngIf="fDesde.errors?.['required']">
+                El campo es obligatorio
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="fHasta" class="form-label">Fecha hasta:</label>
+        <input #fHasta="ngModel"
+        required
+        pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$" 
+        [(ngModel)]="vuelo.fechaHasta" type="text" class="form-control" id="fHasta">
+        <div class="alert alert-danger" *ngIf="fHasta.invalid && fHasta.touched">
+            <div *ngIf="fHasta.errors?.['pattern']">
+               Formato fecha incorrecto
+            </div>
+            <div *ngIf="fHasta.errors?.['required']">
+                El campo es obligatorio
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="durHoras" class="form-label">Duracion (horas):</label>
+        <input #durHoras="ngModel" required [(ngModel)]="vuelo.duracion" type="number" class="form-control" id="durHoras">
+        <div class="alert alert-danger" *ngIf="durHoras.invalid && durHoras.touched">
+            <div *ngIf="durHoras.errors?.['required']">
+                El campo es obligatorio
+            </div>
+        </div>
+    </div>
+
+    <!-- <button class="btn btn-primary" (click)="crearImputacion()">Crear imputacion</button> -->
+    <button class="btn btn-primary" (click)="crearVuelo()">Crear vuelo</button>
+
+</div>
+

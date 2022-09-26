@@ -1,0 +1,108 @@
+<div class="container">
+    <!-- <p>Alumno:</p>
+    <select [(ngModel)]="imputacion.empleado" name="empleados" id="empleados">
+        <option value="{{emp.id}}" *ngFor="let emp of empleados">{{emp.id}} - {{emp.nif}} - {{emp.nombre}}</option>
+    </select> -->
+    <p>Vuelo:</p>
+    <select #vuelo="ngModel" required [(ngModel)]="reserva.vuelo" name="vuelo" id="vuelo">
+        <option value="{{vuelo.id}}" *ngFor="let vuelo of vuelos">{{generarOrigenDestino(vuelo)}}</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="vuelo.invalid && vuelo.touched">
+        <div *ngIf="vuelo.errors?.['required']">
+            El campo es obligatorio
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha:</label>
+        <input #fecha="ngModel"
+        required
+        pattern="^[0-9]{2}-[0-9]{2}-[0-9]{4}$"  
+        [(ngModel)]="reserva.fecha" type="text" class="form-control" id="fecha">
+        <div class="alert alert-danger" *ngIf="fecha.invalid && fecha.touched">
+            <div *ngIf="fecha.errors?.['pattern']">
+               Formato fecha incorrecto
+            </div>
+            <div *ngIf="fecha.errors?.['required']">
+                El campo es obligatorio
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input #nombre="ngModel"
+        required
+        pattern="^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$" 
+        [(ngModel)]="reserva.pasajero.nombre" type="text" class="form-control" id="nombre">
+        <div class="alert alert-danger" *ngIf="nombre.invalid && nombre.touched">
+            <div *ngIf="nombre.errors?.['pattern']">
+               Formato nombre incorrecto
+            </div>
+            <div *ngIf="nombre.errors?.['required']">
+                El campo es obligatorio
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos:</label>
+        <input #apellidos="ngModel"
+        required
+        pattern="^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$" 
+        [(ngModel)]="reserva.pasajero.apellidos" type="text" class="form-control" id="apellidos">
+        <div class="alert alert-danger" *ngIf="apellidos.invalid && apellidos.touched">
+            <div *ngIf="apellidos.errors?.['pattern']">
+               Formato apellidos incorrecto
+            </div>
+            <div *ngIf="apellidos.errors?.['required']">
+                El campo es obligatorio
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="correo" class="form-label">Correo:</label>
+        <input #correo="ngModel"
+        required
+        pattern="\S+@\S+\.\S+" 
+        [(ngModel)]="reserva.pasajero.correo" type="text" class="form-control" id="correo">
+        <div class="alert alert-danger" *ngIf="correo.invalid && correo.touched">
+            <div *ngIf="correo.errors?.['pattern']">
+               Formato correo incorrecto
+            </div>
+            <div *ngIf="correo.errors?.['required']">
+                El campo es obligatorio
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Telefono:</label>
+        <input #telefono="ngModel"
+        required
+        pattern="[0-9]{9}" 
+        [(ngModel)]="reserva.pasajero.telefono" type="text" class="form-control" id="telefono">
+        <div class="alert alert-danger" *ngIf="telefono.invalid && telefono.touched">
+            <div *ngIf="telefono.errors?.['pattern']">
+               Formato telefono incorrecto
+            </div>
+            <div *ngIf="telefono.errors?.['required']">
+                El campo es obligatorio
+            </div>
+        </div>
+    </div>
+
+    <!-- <button class="btn btn-primary" (click)="crearImputacion()">Crear imputacion</button> -->
+    <button class="btn btn-primary" (click)="crearReserva()">Crear reserva</button>
+
+    <!-- <div *ngIf="!tipo">
+        <label for="nCuenta" class="form-label">Num cuenta</label>
+        <input #campoDatosCuenta="ngModel"
+        pattern="^[A-Z]{2}[0-9]{2} [0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}$"
+        [(ngModel)]="matricula.pago.datos" type="text" class="form-control" id="nCuenta">
+        <div class="alert alert-danger" *ngIf="campoDatosCuenta.invalid && campoDatosCuenta.touched">
+            <div *ngIf="campoDatosCuenta.errors?.['pattern']">
+                Formato numero cuenta incorrecto;
+                ejemplo: ES12 1234 1234 1234 1234 1234
+            </div>
+        </div>
+    </div> -->
+
+</div>
